@@ -1,14 +1,17 @@
 import React from 'react';
+import { Card, CardImg, CardTitle, CardText, Row, Col } from 'reactstrap';
+
 
 const Followers = (props) => {
     //console.log('props from Followers: ', props.user)
     return (
-        <div>
-            <img src={props.user.avatar_url} alt="profile photo" className="user-img"/>
-            <p>login: {props.user.login}</p>
-            <p>{props.user.bio}</p>
-            <a href={props.user.html_url}>Go to GitHub page</a>
-        </div>
+        <Col sm="4">
+            <Card body>
+                <CardImg src={props.user.avatar_url} alt="profile photo" className="profile-img"/>
+                <CardTitle>{props.user.login}</CardTitle>
+                <a href={props.user.html_url}>Go to GitHub page</a>
+            </Card>
+        </Col>
     )
 }
 

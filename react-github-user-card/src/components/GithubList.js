@@ -11,13 +11,15 @@ class GithubList extends React.Component {
             return <h2>Loading...</h2>
         }
         return(
-            <div>
-                <img src={this.props.user.avatar_url} alt="profile photo" className="user-img"/>
-                <p>Name: {this.props.user.name}</p>
-                <p>{this.props.user.bio}</p>
-                <p>Follower: {this.props.user.followers}</p>
-                <p>Following: {this.props.user.following}</p>
-                <a href={this.props.user.html_url}>Go to gitHub page</a>
+            <div className="card-container">
+                <img src={this.props.user.avatar_url} alt="profile photo" className="profile-img"/>
+                <div className="card-content">
+                    <h3>{this.props.user.name}</h3><hr />
+                    <p>{this.props.user.bio}</p>
+                    <h6>Follower: {this.props.user.followers}</h6>
+                    <h6>Following: {this.props.user.following}</h6>
+                    <a href={this.props.user.html_url}>Go to my GitHub page</a>
+                </div>
             </div>
         )
     }
