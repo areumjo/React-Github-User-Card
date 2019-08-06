@@ -20,3 +20,11 @@
 .user-img {
   max-width: 250px;
 }
+
+.visibility {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

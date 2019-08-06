@@ -3,7 +3,6 @@ import React from 'react';
 class GithubList extends React.Component {
     constructor() {
         super();
-
     }
     
     render() {
