@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, CardImg, CardTitle, Col } from 'reactstrap';
 
 
 const Followers = (props) => {

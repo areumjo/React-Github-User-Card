@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import GithubList from './components/GithubList';
 import Followers from './components/Followers';
-import { Button } from 'reactstrap';
+import { Input, InputGroup, Button } from 'reactstrap';
 
 class App extends React.Component {
   constructor() {
@@ -56,12 +56,16 @@ class App extends React.Component {
         <header className="App-header">
           <p>Github user card app</p>
         </header>
+        <InputGroup>
+          <Input sm="4"
+            placeholder="search github"/>
+          <Button color="success">Search</Button>
+        </InputGroup>
         <GithubList user={this.state.github}/>
         <Button onClick={this.handleClick}>Click to see my followers</Button>
         <div className={this.state.visible ? 'visibility' : 'hidden'}>
           {this.state.followers.map(e => <Followers user={e} key={e.id}/>)}
         </div>
-        
       </div>
     );
   }

@@ -1,9 +1,6 @@
 import React from 'react';
 
 class GithubList extends React.Component {
-    constructor() {
-        super();
-    }
     
     render() {
         console.log('inside of githublist render')
@@ -12,7 +9,7 @@ class GithubList extends React.Component {
         }
         return(
             <div className="card-container">
-                <img src={this.props.user.avatar_url} alt="profile photo" className="profile-img"/>
+                <img src={this.props.user.avatar_url} alt="profile" className="profile-img"/>
                 <div className="card-content">
                     <h3>{this.props.user.name}</h3><hr />
                     <p>{this.props.user.bio}</p>
