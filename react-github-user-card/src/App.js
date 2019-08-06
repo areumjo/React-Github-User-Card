@@ -34,7 +34,7 @@ class App extends React.Component {
         <header className="App-header">
           <p>Github user card app</p>
         </header>
-        <GithubList />
+        <GithubList user={this.state.github}/>
       </div>
     );
   }
