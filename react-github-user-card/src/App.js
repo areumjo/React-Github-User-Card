@@ -11,6 +11,7 @@ class App extends React.Component {
       github: [],
       followers: [],
       visible: false,
+      user: "areumjo"
     }
   }
 
@@ -21,7 +22,7 @@ class App extends React.Component {
   }
 
   fetchUser = () => {
-    fetch('https://api.github.com/users/areumjo')
+    fetch(`https://api.github.com/users/${this.state.user}`)
       .then(response => {
         return response.json();
       })
@@ -33,7 +34,7 @@ class App extends React.Component {
   }
 
   fetchFollower = () => {
-    fetch(`https://api.github.com/users/areumjo/followers`)
+    fetch(`https://api.github.com/users/${this.state.user}/followers`)
       .then(response => {
         return response.json();
       })
@@ -49,8 +50,19 @@ class App extends React.Component {
     this.setState({ visible: !this.state.visible })
   }
 
+  handleUserSearch = e => {
+    this.setState( {user: e.target.value })
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.fetchUser();
+    this.fetchFollower();
+    console.log('handleSubmit click')
+  }
+
   render() {
-    
+    console.log(this.state.user)
     return (
       <div className="App">
         <header className="App-header">
@@ -58,8 +70,9 @@ class App extends React.Component {
         </header>
         <InputGroup>
           <Input sm="4"
-            placeholder="search github"/>
-          <Button color="success">Search</Button>
+            placeholder="search github"
+            onChange={this.handleUserSearch}/>
+          <Button onClick={this.handleSubmit} color="success">Search</Button>
         </InputGroup>
         <GithubList user={this.state.github}/>
         <Button onClick={this.handleClick}>Click to see my followers</Button>
