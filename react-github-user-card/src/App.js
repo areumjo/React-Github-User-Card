@@ -3,6 +3,7 @@ import './App.css';
 import GithubList from './components/GithubList';
 import Followers from './components/Followers';
 import { Input, InputGroup, Button } from 'reactstrap';
+import Following from './components/Following';
 
 class App extends React.Component {
   constructor() {
@@ -11,6 +12,7 @@ class App extends React.Component {
       github: [],
       followers: [],
       visible: false,
+      visible2: false,
       user: "areumjo"
     }
   }
@@ -50,6 +52,11 @@ class App extends React.Component {
     this.setState({ visible: !this.state.visible })
   }
 
+  handleClick2 = () => {
+    console.log('handleClick: visible state:', this.state.visible);
+    this.setState({ visible: !this.state.visible })
+  }
+
   handleUserSearch = e => {
     this.setState( {user: e.target.value })
   }
@@ -62,7 +69,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.user)
     return (
       <div className="App">
         <header className="App-header">
@@ -76,8 +82,12 @@ class App extends React.Component {
         </InputGroup>
         <GithubList user={this.state.github}/>
         <Button onClick={this.handleClick}>Click to see my followers</Button>
+        {/* <Button onClick={this.handleClick2}>Who am I following?</Button> */}
         <div className={this.state.visible ? 'visibility' : 'hidden'}>
           {this.state.followers.map(e => <Followers user={e} key={e.id}/>)}
+        </div>
+        <div className={this.state.visible2 ? 'visibility2' : 'hidden2'}>
+          {this.state.followers.map(e => <Following user={e} key={e.id}/>)}
         </div>
       </div>
     );

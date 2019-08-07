@@ -19,6 +19,7 @@
 
 .profile-img {
   width: 200px;
+  margin: 0 auto;
 }
 
 .visibility {
@@ -51,4 +52,14 @@
 .input-group {
   width: 50% !important;
   margin: 20px auto;
+}
+
+.visibility2 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+}
+
+.hidden2 {
+  display: none;
 }
